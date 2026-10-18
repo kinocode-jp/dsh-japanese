@@ -1,0 +1,7 @@
+# dsh-locale-ja bundle patch: inserts the Japanese locale row into the web
+# profile roster. Applied as a profile bundle layer (the `dsh.bundle.patch`
+# manifest field). Install with:
+#   dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-locale-ja
+- insert:
+    - id: locale-ja
+      name: 'dsh-locale-ja'
