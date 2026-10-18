@@ -77,6 +77,37 @@ npm run apply-polish  # レビュー結果を反映
 npm run merge         # 翻訳結果を locale/ja/ に統合
 ```
 
+
+## フォント（日本語優先）
+
+DSH の既定スタックは日本語書体より先に `PingFang SC` / `Hiragino Sans GB`（簡体字中国語）を
+並べているため、日本語UIでも漢字が中国語字形になる。このプラグインは `<html>` に次の既定を入れる。
+
+| 用途 | スタック |
+|---|---|
+| 本文 | `"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic UI", "Yu Gothic", Meiryo, -apple-system, …` |
+| コード | `"SF Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Hiragino Sans", "Noto Sans JP", …` |
+| ターミナル | コードと同じ |
+
+Settings でフォントを指定すると `<body>` に書かれ、そちらが優先される。空欄に戻すとこの既定に戻る。
+
+### 再起動せずに反映する
+
+Settings → 一般 → その他のフォント設定 → **テキストフォント** に次を貼る（入力欄は200文字まで）。
+
+```text
+"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif
+```
+
+**コードフォント** には次を貼る。
+
+```text
+"SF Mono", Menlo, "Hiragino Sans", "Yu Gothic", monospace
+```
+
+Latin も Hiragino の字形に揃えたい場合はこのままでよい。Latin だけ SF Pro に戻したい場合は
+先頭に `-apple-system, ` を足す（例: `-apple-system, "Hiragino Sans", …`）。
+
 ## 構成
 
 ```text

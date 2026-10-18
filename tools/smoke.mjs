@@ -19,7 +19,7 @@ const { apply, inject } = captured.factory(() => fail('no requires expected'));
 expect(JSON.stringify(inject) === JSON.stringify(['locale']), 'inject must be ["locale"]');
 
 const LANGS = JSON.parse(src.match(/const LANGS = (\[[\s\S]*?\n\]);/)[1]);
-const DICTS = JSON.parse(src.match(/const DICTS = (\{[\s\S]*\n\});/)[1]);
+const DICTS = JSON.parse(src.match(/const DICTS = (\{[\s\S]*?\n\});\n    \/\/#endregion/)[1]);
 expect(LANGS.length === 1 && LANGS[0].id === 'ja', 'bundle must ship exactly ja');
 const nsCount = Object.keys(DICTS.ja).length;
 const keyCount = Object.values(DICTS.ja).reduce((n, d) => n + Object.keys(d).length, 0);

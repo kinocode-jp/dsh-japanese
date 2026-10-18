@@ -12,6 +12,20 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const localeRoot = join(root, 'locale');
 const LANGS = [{ id: 'ja', label: '日本語' }];
 
+// Japanese-first font stacks. DSH's built-in stacks list PingFang SC and
+// Hiragino Sans GB (Simplified Chinese) ahead of every Japanese face, so
+// Japanese UI text renders with Chinese glyph forms. These become root-level
+// defaults: a font the user picks in Settings lands on <body> and wins, and
+// clearing that field falls back here again.
+const FONT_STACKS = {
+  '--dsh-font-family-text':
+    '"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic UI", "Yu Gothic", Meiryo, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif',
+  '--dsh-font-family-code':
+    '"SF Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, monospace',
+  '--dsh-font-family-terminal':
+    '"SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, monospace',
+};
+
 function loadLang(langId) {
   const dir = join(localeRoot, langId);
   if (!existsSync(dir)) return [];
@@ -65,6 +79,10 @@ window.__ModuleLoader__.load({
     const DICTS = ${JSON.stringify(DICTS, null, 2)};
     //#endregion
 
+    //#region Japanese font stacks
+    const FONT_STACKS = ${JSON.stringify(FONT_STACKS, null, 2)};
+    //#endregion
+
     /** Required services: the locale registry owned by dsh-client-locale. */
     const inject = ["locale"];
 
@@ -76,6 +94,18 @@ window.__ModuleLoader__.load({
      * @param ctx - client root context.
      */
     function apply(ctx) {
+      // Root-level font defaults: <body> variables written by the theme
+      // presenter (Settings → font) override these, and clearing the setting
+      // restores this stack.
+      ctx.effect(() => {
+        if (typeof document === "undefined") return () => {};
+        const root = document.documentElement;
+        for (const [name, value] of Object.entries(FONT_STACKS)) root.style.setProperty(name, value);
+        return () => {
+          for (const name of Object.keys(FONT_STACKS)) root.style.removeProperty(name);
+        };
+      }, "locale-ja: Japanese font stacks");
+
       for (const { id, label } of LANGS) {
         ctx.effect(() => {
           try {
