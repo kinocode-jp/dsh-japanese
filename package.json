@@ -1,8 +1,7 @@
 {
-  "name": "dsh-locale-ja",
+  "name": "@kinocode/dsh-japanese",
   "version": "0.1.0",
-  "private": true,
-  "description": "Japanese-only locale pack for DeepSeek Harness. Registers 日本語 and ships a full ja dictionary built from the English baseline of DSH 0.2.1-rc.2.",
+  "description": "Japanese language and typography pack for DeepSeek Harness: 日本語 UI, complete dictionary, and Japanese-first fonts.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -27,12 +26,30 @@
   "peerDependencies": {
     "@deepseek-ai/cordis": "~4.0.4"
   },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
   "license": "MIT",
+  "author": "kinocode",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "locale",
+    "japanese",
+    "ja",
+    "i18n",
+    "font"
+  ],
   "files": [
     "lib/**/*.js",
     "locale/**/*.json",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "node tools/build-client.mjs",

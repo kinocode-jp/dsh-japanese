@@ -14,7 +14,7 @@ const expect = (cond, msg) => { if (!cond) fail(msg); };
 let captured;
 globalThis.window = { __ModuleLoader__: { load: (m) => { captured = m; } } };
 (0, eval)(src);
-expect(captured?.id === 'dsh-locale-ja', 'bundle id mismatch: ' + captured?.id);
+expect(captured?.id === '@kinocode/dsh-japanese', 'bundle id mismatch: ' + captured?.id);
 const { apply, inject } = captured.factory(() => fail('no requires expected'));
 expect(JSON.stringify(inject) === JSON.stringify(['locale']), 'inject must be ["locale"]');
 

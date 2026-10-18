@@ -1,47 +1,77 @@
-# dsh-locale-ja
+# @kinocode/dsh-japanese
 
-DeepSeek Harness（DSH）デスクトップアプリ用の**日本語だけ**のロケールパック。
-言語ピッカーに「日本語」を追加し、49 名前空間・2,606 キーの日本語辞書を登録する。
+DeepSeek Harness（DSH）デスクトップアプリ用の**日本語パック**。
+言語ピッカーに「日本語」を追加し、49名前空間・2,606キーの辞書と、日本語優先のフォント設定を入れる。
+
+> **非公式プラグインです。** DeepSeek / DeepSeek Harness の公式配布物ではありません。
 
 英語の基準辞書は DSH `0.2.1-rc.2` から抽出したもの（`tools/en.baseline.json`）。
 未翻訳のキーは英語にフォールバックするので、DSH を更新してキーが増えても UI は壊れない。
 
 ## インストール
 
-このプロジェクトはすでに `desktop` プロファイルへ link インストール済み。
-`package.json` の依存と `dsh.profile.bundles` に `dsh-locale-ja` が入り、
-`dsh-locale-pack` は依存・バンドルとも外してある。
-
-```jsonc
-// ~/.dsh/profiles/desktop/package.json（抜粋）
-"dependencies": { "dsh-locale-ja": "link:/Volumes/D/Project/dsh-locale-ja" },
-"dsh": { "profile": { "bundles": [ "...", "dsh-locale-ja", "..." ] } }
-```
-
-初回だけ DSH を再起動し、**Settings → Language → 日本語** を選ぶ。
-再起動なしでは host 側の行が読み込まれないため、言語ピッカーに日本語は出ない。
-
-ゼロから入れ直す場合:
+npm から入れる場合（公開後）:
 
 ```bash
-dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-locale-ja
-# package.json の dsh.profile.bundles に "dsh-locale-ja" を追記する
+dsh plugin --profile desktop add @kinocode/dsh-japanese
 ```
+
+または **Plugins** 画面で `@kinocode/dsh-japanese` を指定してインストールする。
+`dsh.bundle.patch` を宣言しているので、プロファイルの `dsh.profile.bundles` には自動で追加される。
+
+入れたあと DSH を再起動し、**Settings → Language → 日本語** を選ぶ。
+
+ローカルの作業ツリーから入れる場合:
+
+```bash
+dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-japanese
+```
+
+このリポジトリは現在この link 方式で `desktop` プロファイルに入っている。
 
 ### 元に戻す
 
-バックアップは `~/.dsh/profiles/desktop/package.json.bak-before-locale-ja` と
-`pnpm-lock.yaml.bak-before-locale-ja` に置いてある。
+`~/.dsh/profiles/desktop/package.json.bak-before-locale-ja` と
+`pnpm-lock.yaml.bak-before-locale-ja` に、導入前のバックアップがある。
 
-```bash
-cd ~/.dsh/profiles/desktop
-cp package.json.bak-before-locale-ja package.json
-cp pnpm-lock.yaml.bak-before-locale-ja pnpm-lock.yaml
-ln -s ../../../plugins-src/dsh-locale-pack node_modules/dsh-locale-pack
-dsh plugin --profile desktop install
+## 何を変えるか
+
+| 領域 | 内容 | 状態 |
+|---|---|---|
+| 日本語辞書 | 49名前空間・2,606キー。です・ます調、用語統一 | 実装済み |
+| フォント | 本文・コード・ターミナルを日本語優先スタックに | 実装済み |
+| 組版 | 禁則処理・約物まわりの調整 | 検討中 |
+| 日付・数値 | 和暦ではなく `YYYY/MM/DD`、桁区切り | 検討中 |
+
+## フォント（日本語優先）
+
+DSH の既定スタックは日本語書体より先に `PingFang SC` / `Hiragino Sans GB`（簡体字中国語）を
+並べているため、日本語UIでも漢字が中国語字形になる。このプラグインは `<html>` に次の既定を入れる。
+
+| 用途 | スタック |
+|---|---|
+| 本文 | `"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic UI", "Yu Gothic", Meiryo, -apple-system, …` |
+| コード | `"SF Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Hiragino Sans", "Noto Sans JP", …` |
+| ターミナル | コードと同じ |
+
+Settings でフォントを指定すると `<body>` に書かれ、そちらが優先される。空欄に戻すとこの既定に戻る。
+
+### 再起動せずに反映する
+
+Settings → 一般 → その他のフォント設定 → **テキストフォント** に次を貼る（入力欄は200文字まで）。
+
+```text
+"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif
 ```
 
-`dsh-locale-pack` の本体（`~/.dsh/plugins-src/dsh-locale-pack`）は消していない。
+**コードフォント** には次を貼る。
+
+```text
+"SF Mono", Menlo, "Hiragino Sans", "Yu Gothic", monospace
+```
+
+Latin も Hiragino の字形に揃えたい場合はこのままでよい。Latin だけ SF Pro に戻したい場合は
+先頭に `-apple-system, ` を足す（例: `-apple-system, "Hiragino Sans", …`）。
 
 ## 翻訳を直す
 
@@ -77,37 +107,6 @@ npm run apply-polish  # レビュー結果を反映
 npm run merge         # 翻訳結果を locale/ja/ に統合
 ```
 
-
-## フォント（日本語優先）
-
-DSH の既定スタックは日本語書体より先に `PingFang SC` / `Hiragino Sans GB`（簡体字中国語）を
-並べているため、日本語UIでも漢字が中国語字形になる。このプラグインは `<html>` に次の既定を入れる。
-
-| 用途 | スタック |
-|---|---|
-| 本文 | `"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic UI", "Yu Gothic", Meiryo, -apple-system, …` |
-| コード | `"SF Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Hiragino Sans", "Noto Sans JP", …` |
-| ターミナル | コードと同じ |
-
-Settings でフォントを指定すると `<body>` に書かれ、そちらが優先される。空欄に戻すとこの既定に戻る。
-
-### 再起動せずに反映する
-
-Settings → 一般 → その他のフォント設定 → **テキストフォント** に次を貼る（入力欄は200文字まで）。
-
-```text
-"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif
-```
-
-**コードフォント** には次を貼る。
-
-```text
-"SF Mono", Menlo, "Hiragino Sans", "Yu Gothic", monospace
-```
-
-Latin も Hiragino の字形に揃えたい場合はこのままでよい。Latin だけ SF Pro に戻したい場合は
-先頭に `-apple-system, ` を足す（例: `-apple-system, "Hiragino Sans", …`）。
-
 ## 構成
 
 ```text
@@ -115,7 +114,7 @@ locale/ja/*.json       日本語辞書（名前空間 = ファイル名）
 lib/client.js          生成物。直接編集しない
 lib/index.js           host 側は空
 tools/en.baseline.json 英語の基準辞書（DSH 0.2.1-rc.2）
-tools/build-client.mjs 辞書を client.js に埋め込む
+tools/build-client.mjs 辞書とフォント既定を client.js に埋め込む
 tools/check.mjs        品質検査（終了コードあり）
 tools/audit.mjs        自然さの監査（助言のみ）
 tools/review.mjs       CSV の書き出し・取り込み
@@ -126,6 +125,22 @@ tools/apply-polish.mjs 推敲結果の適用
 docs/glossary.md       訳語と文体のガイドライン
 docs/review.csv        レビュー用 CSV（生成物・2,606行）
 ```
+
+## 公開（メンテナ向け）
+
+npm の `@kinocode` スコープで公開する。
+
+```bash
+npm login                 # kinocode オーガニゼーションのメンバー
+npm publish --access public
+```
+
+- `package.json` の `private` は外してある
+- `files` に `lib` / `locale` / `cordis.patch.yml` / `README` / `LICENSE` / `CHANGELOG` が入る
+- 公開前に `npm pack --dry-run` で中身を確認する
+- `dsh.engines.dsh` が対応範囲。DSH 側の互換チェックは `engines` と peerDependencies を見る
+- pnpm の `minimumReleaseAge` により、公開直後の版はインストールが遅れることがある
+- DSH には公式マーケットは無い。配布は npm か Git、または自前の market index（実験的機能）になる
 
 ## DSH を更新したとき
 
@@ -138,4 +153,5 @@ docs/review.csv        レビュー用 CSV（生成物・2,606行）
 
 - `addLanguage({ id: 'ja', label: '日本語', fallback: 'en' })` で言語を登録する
 - 辞書は `ctx.locale.register(namespace, { ja: dict })` で登録する
+- フォントは `<html>` の CSS 変数（`--dsh-font-family-*`）で既定を入れ、Settings の指定（`<body>`）に譲る
 - 二重ロード時は「already registered」を握りつぶす（GUI の起動を止めない）
