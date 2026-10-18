@@ -18,7 +18,9 @@
       "patch": "./cordis.patch.yml"
     },
     "client": {
-      "inject": ["@deepseek-ai/dsh-client-locale"],
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ],
       "platform": "web"
     }
   },
@@ -37,6 +39,11 @@
     "check": "node tools/check.mjs",
     "review": "node tools/review.mjs export",
     "apply-review": "node tools/review.mjs import",
-    "batches": "node tools/make-batches.mjs"
+    "batches": "node tools/make-batches.mjs",
+    "audit": "node tools/audit.mjs",
+    "smoke": "node tools/smoke.mjs",
+    "polish": "node tools/make-polish.mjs",
+    "apply-polish": "node tools/apply-polish.mjs",
+    "merge": "node tools/merge-out.mjs"
   }
 }
