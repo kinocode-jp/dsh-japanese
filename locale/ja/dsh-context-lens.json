@@ -1,0 +1,13 @@
+{
+  "title": "コンテキストレンズ",
+  "sub": "ASTコードの骨格とテストログの圧縮",
+  "mode": "圧縮モード",
+  "depth": "AST最大深度",
+  "threshold": "自動圧縮のしきい値（文字数）",
+  "preview": "ログプレビュー",
+  "compress": "圧縮",
+  "placeholder": "ここにテストログまたはビルドログを貼り付け…",
+  "saving": "保存中…",
+  "ready": "準備完了",
+  "previewApprox": "ローカルプレビュー"
+}

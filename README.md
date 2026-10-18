@@ -1,7 +1,7 @@
 # @kinocode/dsh-japanese
 
 DeepSeek Harness（DSH）デスクトップアプリ用の**日本語パック**。
-言語ピッカーに「日本語」を追加し、67名前空間・3,802キーの辞書と、日本語優先のフォント設定を入れる。
+言語ピッカーに「日本語」を追加し、76名前空間・5,404キーの辞書と、日本語優先のフォント設定を入れる。
 
 > **非公式プラグインです。** DeepSeek / DeepSeek Harness の公式配布物ではありません。
 
@@ -38,7 +38,7 @@ dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-japanese
 
 | 領域 | 内容 | 状態 |
 |---|---|---|
-| 日本語辞書 | 67名前空間・3,802キー。です・ます調、用語統一 | 実装済み |
+| 日本語辞書 | 76名前空間・5,404キー。です・ます調、用語統一 | 実装済み |
 | フォント | 本文・コード・ターミナルを日本語優先スタックに | 実装済み |
 | 外部プラグイン | `dsh-agy`、`dsh-vcs`、`dsh-chatgpt-subscription`、`dsh-image-gen` の UI | 実装済み |
 | 組版 | 禁則処理・約物まわりの調整 | 検討中 |
@@ -82,9 +82,18 @@ Latin も Hiragino の字形に揃えたい場合はこのままでよい。Lati
 | プラグイン | 名前空間 | キー | 版 |
 |---|---|---|---|
 | dsh-agy | `agy` | 224 | 0.4.6 |
-| @feng0531/dsh-vcs | `local.vcs` | 260 | 0.4.10 |
-| @eddyskywalker/dsh-chatgpt-subscription | `dsh-workbuddy`, `dsh-progress-updates` | 130 | 0.27.1 |
+| dshmarket | `dsh-market` | 733 | 1.66.37 |
+| @goodandready/dsh-cron | `dsh-cron` | 385 | 0.3.8 |
 | @goodandready/dsh-image-gen | `dsh-image-gen` | 312 | 0.12.2 |
+| @feng0531/dsh-vcs | `local.vcs` | 260 | 0.4.10 |
+| @goodandready/dsh-key-rotation | `dsh-key-rotation` | 210 | 0.8.63 |
+| dsh-workbuddy-connect | `settings.workbuddy` | 125 | 0.7.8 |
+| @eddyskywalker/dsh-chatgpt-subscription | `dsh-workbuddy`, `dsh-progress-updates` | 130 | 0.27.1 |
+| @cola1900/dsh-ppt | `dsh-ppt` | 63 | 0.3.4 |
+| dsh-wsl-tray | `dsh-wsl-tray` | 43 | 0.1.7 |
+| dsh-plugin-uisfx | `dsh-plugin-uisfx` | 20 | 0.1.1 |
+| @dingpenghui/dsh-conversation-language | `settings.conversation-language` | 12 | 3.2.5 |
+| @goodandready/dsh-context-lens | `dsh-context-lens` | 11 | 0.1.33 |
 
 DSH のロケールを使わず独自の中文/English 切替を持つプラグイン（`dsh-cost-meter`、`dsh-free-search` など）は、
 このパックでは日本語化できない。
@@ -139,7 +148,7 @@ tools/make-polish.mjs  推敲バッチの生成
 tools/merge-out.mjs    バッチ結果の統合
 tools/apply-polish.mjs 推敲結果の適用
 docs/glossary.md       訳語と文体のガイドライン
-docs/review.csv        レビュー用 CSV（生成物・3,802行）
+docs/review.csv        レビュー用 CSV（生成物・5,404行）
 ```
 
 ## 公開（メンテナ向け）

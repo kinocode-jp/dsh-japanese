@@ -1,0 +1,22 @@
+{
+  "settingsNav": "効果音",
+  "enabled": "効果音を有効化",
+  "volume": "音量",
+  "pack": "効果音パック",
+  "taskSounds": "タスクの効果音",
+  "clickSounds": "ボタンの効果音",
+  "attentionSounds": "注意喚起の効果音",
+  "preview": "試聴",
+  "reset": "既定値に戻す",
+  "scenario.task.start": "タスク開始",
+  "scenario.task.success": "タスク成功",
+  "scenario.task.failure": "タスク失敗",
+  "scenario.task.pending": "確認待ち",
+  "scenario.click.normal": "通常クリック",
+  "scenario.click.primary": "主要ボタン",
+  "scenario.click.toggle": "トグル / チェックボックス",
+  "scenario.click.send": "送信",
+  "scenario.click.close": "閉じる / キャンセル",
+  "scenario.click.danger": "削除 / 危険",
+  "scenario.click.link": "リンク"
+}

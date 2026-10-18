@@ -1,6 +1,6 @@
 {
   "name": "@kinocode/dsh-japanese",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Japanese language and typography pack for DeepSeek Harness: 日本語 UI, complete dictionary, and Japanese-first fonts.",
   "type": "module",
   "main": "lib/index.js",

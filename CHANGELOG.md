@@ -1,5 +1,13 @@
 # 変更履歴
 
+## 0.1.4 (2026-10-18)
+
+- 人気外部プラグインの残りを追加（1,602キー）
+  - `dshmarket`（`dsh-market` 733）、`@goodandready/dsh-cron`（385）、`@goodandready/dsh-key-rotation`（210）
+  - `dsh-workbuddy-connect`（settings.workbuddy 125）、`@cola1900/dsh-ppt`（63）、`dsh-wsl-tray`（43）
+  - `dsh-plugin-uisfx`（20）、`@dingpenghui/dsh-conversation-language`（12）、`@goodandready/dsh-context-lens`（11）
+- 67 → 76名前空間、3,802 → 5,404キー
+
 ## 0.1.3 (2026-10-18)
 
 - 人気外部プラグインのうち DSH ロケールを使うものを追加（702キー）

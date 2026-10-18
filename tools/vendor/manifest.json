@@ -18,5 +18,41 @@
  "agy": {
   "plugin": "dsh-agy",
   "version": "0.4.6"
+ },
+ "dsh-context-lens": {
+  "plugin": "@goodandready/dsh-context-lens",
+  "version": "0.1.33"
+ },
+ "dsh-cron": {
+  "plugin": "@goodandready/dsh-cron",
+  "version": "0.3.8"
+ },
+ "dsh-key-rotation": {
+  "plugin": "@goodandready/dsh-key-rotation",
+  "version": "0.8.63"
+ },
+ "dsh-market": {
+  "plugin": "dshmarket",
+  "version": "1.66.37"
+ },
+ "dsh-plugin-uisfx": {
+  "plugin": "dsh-plugin-uisfx",
+  "version": "0.1.1"
+ },
+ "dsh-ppt": {
+  "plugin": "@cola1900/dsh-ppt",
+  "version": "0.3.4"
+ },
+ "dsh-wsl-tray": {
+  "plugin": "dsh-wsl-tray",
+  "version": "0.1.7"
+ },
+ "settings.conversation-language": {
+  "plugin": "@dingpenghui/dsh-conversation-language",
+  "version": "3.2.5"
+ },
+ "settings.workbuddy": {
+  "plugin": "dsh-workbuddy-connect",
+  "version": "0.7.8"
  }
 }

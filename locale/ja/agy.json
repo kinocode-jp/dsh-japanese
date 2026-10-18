@@ -75,7 +75,7 @@
   "quotaManageHint": "管理: 設定 → Antigravity",
   "preferencesTitle": "環境設定",
   "prefConversationBadge": "会話ヘッダーのクォータバッジ",
-  "prefConversationBadgeDesc": "会話セッションのヘッダーに、有効なアカウントのクォータバッジとポップオーバーを表示します。",
+  "prefConversationBadgeDesc": "会話のヘッダーに、有効なアカウントのクォータバッジとポップオーバーを表示します。",
   "prefSaveFailed": "保存できませんでした: {message}",
   "badgeQuotaFormat": "AGY · {percent}%",
   "badgeWindowQuotaFormat": "AGY · {window}{percent}%",
