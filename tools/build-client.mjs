@@ -108,10 +108,25 @@ window.__ModuleLoader__.load({
         // Japanese sentence at phrase boundaries instead of at arbitrary
         // characters, which is how Japanese text is normally set.
         root.style.wordBreak = "auto-phrase";
+        // Japanese punctuation spacing: trim the full-width spacing that
+        // 、。」 etc. carry at line start (Chromium 123+).
+        root.style.textSpacingTrim = "trim-start";
+
+        // Proportional kana for headings only: "palt" tightens the spacing
+        // around 、。 in display type without touching body text or code.
+        if (!document.querySelector('style[data-dsh-japanese="headings"]')) {
+          const tag = document.createElement("style");
+          tag.dataset.dshJapanese = "headings";
+          tag.textContent = 'h1,h2,h3,h4,h5,h6,[role="heading"]{font-feature-settings:"palt" 1;letter-spacing:.01em}';
+          document.head.appendChild(tag);
+        }
         return () => {
           for (const name of Object.keys(FONT_STACKS)) root.style.removeProperty(name);
           root.style.removeProperty("line-break");
           root.style.removeProperty("word-break");
+          root.style.removeProperty("text-spacing-trim");
+          const tag = document.querySelector('style[data-dsh-japanese="headings"]');
+          if (tag) tag.remove();
         };
       }, "dsh-japanese: Japanese font stacks");
 

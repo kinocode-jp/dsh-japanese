@@ -1,5 +1,10 @@
 # 変更履歴
 
+## 0.1.8 (2026-10-18)
+
+- 約物の詰め: `text-spacing-trim: trim-start` で行頭の全角約物の余白を詰める
+- 見出しのプロポーショナルかな: `h1`〜`h6` に `font-feature-settings: "palt"`
+
 ## 0.1.7 (2026-10-18)
 
 - 日本語の改行を文節単位に（`word-break: auto-phrase`、Chromium 119+）
