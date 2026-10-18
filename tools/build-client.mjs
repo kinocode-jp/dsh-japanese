@@ -101,8 +101,12 @@ window.__ModuleLoader__.load({
         if (typeof document === "undefined") return () => {};
         const root = document.documentElement;
         for (const [name, value] of Object.entries(FONT_STACKS)) root.style.setProperty(name, value);
+        // Japanese kinsoku: never break before small kana, the prolonged sound
+        // mark, or closing punctuation. Inherited by every element.
+        root.style.lineBreak = "strict";
         return () => {
           for (const name of Object.keys(FONT_STACKS)) root.style.removeProperty(name);
+          root.style.removeProperty("line-break");
         };
       }, "dsh-japanese: Japanese font stacks");
 

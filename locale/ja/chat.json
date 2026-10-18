@@ -189,5 +189,5 @@
   "row.failed": "失敗",
   "json.truncated": "…省略（全{total}文字）",
   "clock.md": "{m}/{d}",
-  "clock.ymd": "{y}-{m}-{d}"
+  "clock.ymd": "{y}/{m}/{d}"
 }

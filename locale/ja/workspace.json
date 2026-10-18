@@ -110,7 +110,7 @@
   "status.completed": "完了",
   "hover.created": "{time}に作成",
   "hover.copied": "コピーしました",
-  "date.ymd": "{y}-{m}-{d}",
+  "date.ymd": "{y}/{m}/{d}",
   "time.now": "今",
   "time.minutes": "{n}分",
   "time.hours": "{n}時間",

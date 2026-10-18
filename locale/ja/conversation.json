@@ -121,7 +121,7 @@
   "detail.schedule.deleted": "削除済み",
   "detail.schedule.count": "{count}件のスケジュール",
   "detail.schedule.daily": "毎日 {time}（{zone}）",
-  "detail.schedule.weekly": "毎週 {days} {time}（{zone}）",
+  "detail.schedule.weekly": "毎週{days}の{time}（{zone}）",
   "detail.schedule.cron": "Cron {expression}（{zone}）",
   "detail.weekday.1": "月",
   "detail.weekday.2": "火",

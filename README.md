@@ -153,19 +153,35 @@ docs/review.csv        レビュー用 CSV（生成物・5,404行）
 
 ## 公開（メンテナ向け）
 
-npm の `@kinocode` スコープで公開する。
+手順と現在の公開状態は **[docs/RELEASING.md](docs/RELEASING.md)** にまとめてある。
+
+要点だけ:
+
+- npm アカウントは `@kinocode` オーガニゼーション、認証は**パスキー**
+- パスキーのため、非対話シェルからの `npm publish` は `EOTP` で止まる。**公開は人がターミナルで実行する**
+- エージェント側は「バージョン更新・翻訳・検査・ビルド・`npm pack` 確認・コミット」までを担当する
 
 ```bash
-npm login                 # kinocode オーガニゼーションのメンバー
-npm publish --access public
+cd /Volumes/D/Project/dsh-japanese
+npm login --auth-type=web    # 初回のみ。ブラウザでパスキー認証
+npm publish --access public  # ブラウザ認証のあと公開
 ```
 
+- `prepublishOnly` で `check` と `build` が自動実行される
 - `package.json` の `private` は外してある
 - `files` に `lib` / `locale` / `cordis.patch.yml` / `README` / `LICENSE` / `CHANGELOG` が入る
 - 公開前に `npm pack --dry-run` で中身を確認する
 - `dsh.engines.dsh` が対応範囲。DSH 側の互換チェックは `engines` と peerDependencies を見る
 - pnpm の `minimumReleaseAge` により、公開直後の版はインストールが遅れることがある
 - DSH には公式マーケットは無い。配布は npm か Git、または自前の market index（実験的機能）になる
+
+### 現在の公開状態
+
+| 項目 | 値 |
+|---|---|
+| ローカル | 0.1.4（76名前空間 / 5,404キー） |
+| npm の latest | 0.1.0 |
+| 公開待ち | 0.1.1〜0.1.4 |
 
 ## DSH を更新したとき
 

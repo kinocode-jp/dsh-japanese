@@ -54,5 +54,13 @@
  "settings.workbuddy": {
   "plugin": "dsh-workbuddy-connect",
   "version": "0.7.8"
+ },
+ "dsh-subscriptions": {
+  "plugin": "@goodandready/dsh-subscriptions",
+  "version": "0.6.72"
+ },
+ "dsh-clinebot": {
+  "plugin": "@goodandready/dsh-clinebot",
+  "version": "0.5.29"
  }
 }

@@ -61,6 +61,7 @@
     "smoke": "node tools/smoke.mjs",
     "polish": "node tools/make-polish.mjs",
     "apply-polish": "node tools/apply-polish.mjs",
-    "merge": "node tools/merge-out.mjs"
+    "merge": "node tools/merge-out.mjs",
+    "prepublishOnly": "node tools/check.mjs && node tools/build-client.mjs"
   }
 }
