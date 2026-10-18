@@ -1,5 +1,10 @@
 # 変更履歴
 
+## 0.1.7 (2026-10-18)
+
+- 日本語の改行を文節単位に（`word-break: auto-phrase`、Chromium 119+）
+- 禁則処理と合わせて、日本語らしい折り返しに
+
 ## 0.1.6 (2026-10-18)
 
 - 外部プラグイン追加: `dsh-rewind-plugin`（`rewind` 37）、`@goodandready/dsh-shadow-auditor`（74）

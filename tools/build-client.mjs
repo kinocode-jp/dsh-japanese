@@ -104,9 +104,14 @@ window.__ModuleLoader__.load({
         // Japanese kinsoku: never break before small kana, the prolonged sound
         // mark, or closing punctuation. Inherited by every element.
         root.style.lineBreak = "strict";
+        // Japanese phrase-aware line breaking (Chromium 119+). Breaks inside a
+        // Japanese sentence at phrase boundaries instead of at arbitrary
+        // characters, which is how Japanese text is normally set.
+        root.style.wordBreak = "auto-phrase";
         return () => {
           for (const name of Object.keys(FONT_STACKS)) root.style.removeProperty(name);
           root.style.removeProperty("line-break");
+          root.style.removeProperty("word-break");
         };
       }, "dsh-japanese: Japanese font stacks");
 
