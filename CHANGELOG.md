@@ -1,5 +1,13 @@
 # 変更履歴
 
+## 0.1.3 (2026-10-18)
+
+- 人気外部プラグインのうち DSH ロケールを使うものを追加（702キー）
+  - `@feng0531/dsh-vcs` 0.4.10 — `local.vcs` 260キー
+  - `@eddyskywalker/dsh-chatgpt-subscription` 0.27.1 — `dsh-workbuddy` 102 / `dsh-progress-updates` 28
+  - `@goodandready/dsh-image-gen` 0.12.2 — `dsh-image-gen` 312
+- 65 → 67名前空間、3,100 → 3,802キー
+
 ## 0.1.2 (2026-10-18)
 
 - 外部プラグイン `dsh-agy` 0.4.6 の `agy` 名前空間（224キー）を日本語化

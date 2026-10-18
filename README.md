@@ -1,7 +1,7 @@
 # @kinocode/dsh-japanese
 
 DeepSeek Harness（DSH）デスクトップアプリ用の**日本語パック**。
-言語ピッカーに「日本語」を追加し、63名前空間・3,100キーの辞書と、日本語優先のフォント設定を入れる。
+言語ピッカーに「日本語」を追加し、67名前空間・3,802キーの辞書と、日本語優先のフォント設定を入れる。
 
 > **非公式プラグインです。** DeepSeek / DeepSeek Harness の公式配布物ではありません。
 
@@ -38,9 +38,9 @@ dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-japanese
 
 | 領域 | 内容 | 状態 |
 |---|---|---|
-| 日本語辞書 | 63名前空間・3,100キー。です・ます調、用語統一 | 実装済み |
+| 日本語辞書 | 67名前空間・3,802キー。です・ます調、用語統一 | 実装済み |
 | フォント | 本文・コード・ターミナルを日本語優先スタックに | 実装済み |
-| 外部プラグイン | `dsh-agy`（Antigravity）の `agy` 名前空間 224キー | 実装済み |
+| 外部プラグイン | `dsh-agy`、`dsh-vcs`、`dsh-chatgpt-subscription`、`dsh-image-gen` の UI | 実装済み |
 | 組版 | 禁則処理・約物まわりの調整 | 検討中 |
 | 日付・数値 | 和暦ではなく `YYYY/MM/DD`、桁区切り | 検討中 |
 
@@ -73,6 +73,21 @@ Settings → 一般 → その他のフォント設定 → **テキストフォ�
 
 Latin も Hiragino の字形に揃えたい場合はこのままでよい。Latin だけ SF Pro に戻したい場合は
 先頭に `-apple-system, ` を足す（例: `-apple-system, "Hiragino Sans", …`）。
+
+## 対応している外部プラグイン
+
+各プラグインが DSH のロケール名前空間を使っている場合だけ、このパックに `ja` を足せる。
+対応版は `tools/vendor/manifest.json` に固定してある。
+
+| プラグイン | 名前空間 | キー | 版 |
+|---|---|---|---|
+| dsh-agy | `agy` | 224 | 0.4.6 |
+| @feng0531/dsh-vcs | `local.vcs` | 260 | 0.4.10 |
+| @eddyskywalker/dsh-chatgpt-subscription | `dsh-workbuddy`, `dsh-progress-updates` | 130 | 0.27.1 |
+| @goodandready/dsh-image-gen | `dsh-image-gen` | 312 | 0.12.2 |
+
+DSH のロケールを使わず独自の中文/English 切替を持つプラグイン（`dsh-cost-meter`、`dsh-free-search` など）は、
+このパックでは日本語化できない。
 
 ## 翻訳を直す
 
@@ -124,7 +139,7 @@ tools/make-polish.mjs  推敲バッチの生成
 tools/merge-out.mjs    バッチ結果の統合
 tools/apply-polish.mjs 推敲結果の適用
 docs/glossary.md       訳語と文体のガイドライン
-docs/review.csv        レビュー用 CSV（生成物・3,100行）
+docs/review.csv        レビュー用 CSV（生成物・3,802行）
 ```
 
 ## 公開（メンテナ向け）

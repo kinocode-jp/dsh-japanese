@@ -1,0 +1,22 @@
+{
+ "local.vcs": {
+  "plugin": "@feng0531/dsh-vcs",
+  "version": "0.4.10"
+ },
+ "dsh-workbuddy": {
+  "plugin": "@eddyskywalker/dsh-chatgpt-subscription",
+  "version": "0.27.1"
+ },
+ "dsh-progress-updates": {
+  "plugin": "@eddyskywalker/dsh-chatgpt-subscription",
+  "version": "0.27.1"
+ },
+ "dsh-image-gen": {
+  "plugin": "@goodandready/dsh-image-gen",
+  "version": "0.12.2"
+ },
+ "agy": {
+  "plugin": "dsh-agy",
+  "version": "0.4.6"
+ }
+}
