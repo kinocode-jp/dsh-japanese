@@ -61,9 +61,18 @@ dsh plugin --profile desktop remove @kinocode/dsh-japanese
 | @goodandready/dsh-shadow-auditor | `dsh-shadow-auditor` | 74 |
 | dsh-rewind-plugin | `rewind` | 37 |
 
+### セッションタイトルを日本語で付ける
+
+DSH 本体のタイトル自動生成は「メッセージと同じ言語で」と指示するだけなので、漢字を含む日本語の
+メッセージに中国語（簡体字）のタイトルが付くことがある（例: 「图像生成功能可用性」）。
+このパックは本体の `session-title-llm` を無効にし、代わりに常に日本語でタイトルを付ける提供元
+（`session-title-japanese-llm`）を登録する。返ってきたタイトルに簡体字が含まれていれば、一度だけ付け直す。
+長さや上限は本体と同じ（約 10 文字、入力 4096 バイト、60 秒）。
+
 ### 対応できないもの
 
-`dsh-cost-meter` と `dsh-free-search` は DSH のロケールを使わず、独自の中文/English切替を持つ。
+上流の `dsh-cost-meter` と `dsh-free-search` は DSH のロケールを使わず、独自の中文/English切替を持つ。
+（日本語フォーク `@kinocode/dsh-cost-meter-ja` は、日本語の辞書を自分で DSH のロケールに登録する）
 このパックでは日本語化できない（プラグイン本体の対応が必要）。
 
 `@goodandready/dsh-plugin-notify` は名前空間に `/` を含むため、ファイル名＝名前空間という

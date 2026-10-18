@@ -2,6 +2,12 @@
 # profile roster. Applied as a profile bundle layer (the `dsh.bundle.patch`
 # manifest field). Install with:
 #   dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-japanese
+# DSH's built-in title provider follows "the language of the messages" and
+# sometimes answers Japanese prompts in Simplified Chinese. Disable it; this
+# plugin's host half registers a provider that always titles in Japanese.
+- id: session-title-llm
+  disabled: true
+
 - insert:
     - id: japanese
       name: '@kinocode/dsh-japanese'

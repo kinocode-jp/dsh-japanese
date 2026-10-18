@@ -1,5 +1,11 @@
 # 変更履歴
 
+## 0.1.10 (2026-10-18)
+
+- セッションタイトルを常に日本語で付ける。本体のタイトル自動生成（`session-title-llm`）を無効にし、
+  日本語で付ける提供元 `session-title-japanese-llm` を登録する。簡体字が混じったら一度だけ付け直す
+- ホスト側の依存として `@deepseek-ai/dsh-session-title` と `@deepseek-ai/dsh-session-title-llm` を追加（peerDependencies）
+
 ## 0.1.9 (2026-10-18)
 
 - `--ds-font-family-sans` を日本語スタックで定義。DSH はこの変数を定義していないため、

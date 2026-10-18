@@ -1,6 +1,6 @@
 {
   "name": "@kinocode/dsh-japanese",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Japanese language and typography pack for DeepSeek Harness: 日本語 UI, complete dictionary, and Japanese-first fonts.",
   "type": "module",
   "main": "lib/index.js",
@@ -24,7 +24,9 @@
     }
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "~4.0.4"
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-session-title": ">=0.2.0-rc.1 <0.3.0-0 || >=0.2.1-0 <0.3.0-0",
+    "@deepseek-ai/dsh-session-title-llm": ">=0.2.0-rc.1 <0.3.0-0 || >=0.2.1-0 <0.3.0-0"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/cordis": {
@@ -63,5 +65,9 @@
     "apply-polish": "node tools/apply-polish.mjs",
     "merge": "node tools/merge-out.mjs",
     "prepublishOnly": "node tools/check.mjs && node tools/build-client.mjs"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-session-title": "^0.2.1-rc.2",
+    "@deepseek-ai/dsh-session-title-llm": "^0.2.1-rc.2"
   }
 }
