@@ -24,6 +24,11 @@ const FONT_STACKS = {
     '"SF Mono", "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, monospace',
   '--dsh-font-family-terminal':
     '"SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, monospace',
+  // Third-party plugins (dsh-cost-meter など) reference --ds-font-family-sans,
+  // which DSH itself never defines, so they fall back to `system-ui` and render
+  // kanji with the Chinese system face. Define it as the same Japanese stack.
+  '--ds-font-family-sans':
+    '"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic UI", "Yu Gothic", Meiryo, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif',
 };
 
 function loadLang(langId) {
