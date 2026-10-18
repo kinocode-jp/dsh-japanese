@@ -1,7 +1,7 @@
 # @kinocode/dsh-japanese
 
 DeepSeek Harness（DSH）デスクトップアプリ用の**日本語パック**。
-言語ピッカーに「日本語」を追加し、49名前空間・2,606キーの辞書と、日本語優先のフォント設定を入れる。
+言語ピッカーに「日本語」を追加し、62名前空間・2,876キーの辞書と、日本語優先のフォント設定を入れる。
 
 > **非公式プラグインです。** DeepSeek / DeepSeek Harness の公式配布物ではありません。
 
@@ -38,7 +38,7 @@ dsh plugin --profile desktop add link:/Volumes/D/Project/dsh-japanese
 
 | 領域 | 内容 | 状態 |
 |---|---|---|
-| 日本語辞書 | 49名前空間・2,606キー。です・ます調、用語統一 | 実装済み |
+| 日本語辞書 | 62名前空間・2,876キー。です・ます調、用語統一 | 実装済み |
 | フォント | 本文・コード・ターミナルを日本語優先スタックに | 実装済み |
 | 組版 | 禁則処理・約物まわりの調整 | 検討中 |
 | 日付・数値 | 和暦ではなく `YYYY/MM/DD`、桁区切り | 検討中 |
@@ -123,7 +123,7 @@ tools/make-polish.mjs  推敲バッチの生成
 tools/merge-out.mjs    バッチ結果の統合
 tools/apply-polish.mjs 推敲結果の適用
 docs/glossary.md       訳語と文体のガイドライン
-docs/review.csv        レビュー用 CSV（生成物・2,606行）
+docs/review.csv        レビュー用 CSV（生成物・2,876行）
 ```
 
 ## 公開（メンテナ向け）

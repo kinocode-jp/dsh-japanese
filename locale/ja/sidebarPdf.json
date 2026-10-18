@@ -1,0 +1,11 @@
+{
+  "title": "PDF",
+  "pageImage": "PDF {page}ページ",
+  "loading": "ドキュメントを描画しています…",
+  "rendering": "ページを描画しています…",
+  "failed": "PDFを表示できません: {message}",
+  "password": "このPDFにはパスワードが必要です。パスワードで保護されたプレビューには対応していません。",
+  "workerFailed": "PDFの描画処理を続行できませんでした。再試行してください。",
+  "unsupported": "PDFプレビューにはファイル全体の内容が必要です。",
+  "retry": "再試行"
+}

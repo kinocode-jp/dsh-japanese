@@ -132,5 +132,14 @@
   "card.open": "開く",
   "card.openLabel": "タスクの詳細を開く: {title}",
   "card.deleted": "削除済み",
-  "tool.invoked": "{name}を実行"
+  "tool.invoked": "{name}を実行",
+  "trigger.label": "リマインダー",
+  "delete.label": "リマインダーを削除: {title}",
+  "list.open": "リマインダーの詳細を開く: {title}",
+  "trigger.one": "{count}件のリマインダー",
+  "trigger.other": "{count}件のリマインダー",
+  "list.aria": "有効なリマインダー",
+  "list.nextRun": "次回実行",
+  "mark.aria": "{count}件のスケジュール済みタスク",
+  "hover.more": "他{count}件"
 }
