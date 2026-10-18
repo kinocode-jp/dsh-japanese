@@ -4,7 +4,7 @@
 ![license](https://img.shields.io/npm/l/@kinocode/dsh-japanese)
 
 DeepSeek Harness（DSH）デスクトップアプリを**日本語で使うためのパック**。
-言語ピッカーに「日本語」を追加し、78名前空間・5,909キーの辞書、日本語優先フォント、禁則処理、
+言語ピッカーに「日本語」を追加し、80名前空間・6,020キーの辞書、日本語優先フォント、禁則処理、
 日本の日付表記をまとめて入れる。
 
 > **非公式プラグインです。** DeepSeek / DeepSeek Harness の公式配布物ではありません。
@@ -58,11 +58,16 @@ dsh plugin --profile desktop remove @kinocode/dsh-japanese
 | dsh-plugin-uisfx | `dsh-plugin-uisfx` | 20 |
 | @dingpenghui/dsh-conversation-language | `settings.conversation-language` | 12 |
 | @goodandready/dsh-context-lens | `dsh-context-lens` | 11 |
+| @goodandready/dsh-shadow-auditor | `dsh-shadow-auditor` | 74 |
+| dsh-rewind-plugin | `rewind` | 37 |
 
 ### 対応できないもの
 
 `dsh-cost-meter` と `dsh-free-search` は DSH のロケールを使わず、独自の中文/English切替を持つ。
 このパックでは日本語化できない（プラグイン本体の対応が必要）。
+
+`@goodandready/dsh-plugin-notify` は名前空間に `/` を含むため、ファイル名＝名前空間という
+このパックの構成に載せられない。
 
 ## よくある質問
 

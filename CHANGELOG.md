@@ -1,5 +1,10 @@
 # 変更履歴
 
+## 0.1.6 (2026-10-18)
+
+- 外部プラグイン追加: `dsh-rewind-plugin`（`rewind` 37）、`@goodandready/dsh-shadow-auditor`（74）
+- 78 → 80名前空間、5,909 → 6,020キー
+
 ## 0.1.5 (2026-10-18)
 
 - 日本語組版: `line-break: strict` による禁則処理を既定で適用

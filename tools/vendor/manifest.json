@@ -62,5 +62,13 @@
  "dsh-clinebot": {
   "plugin": "@goodandready/dsh-clinebot",
   "version": "0.5.29"
+ },
+ "rewind": {
+  "plugin": "dsh-rewind-plugin",
+  "version": "0.16.0"
+ },
+ "dsh-shadow-auditor": {
+  "plugin": "@goodandready/dsh-shadow-auditor",
+  "version": "0.2.35"
  }
 }
