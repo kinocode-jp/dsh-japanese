@@ -1,5 +1,9 @@
 # 変更履歴
 
+## 0.1.11 (2026-10-19)
+
+- 公開を GitHub の組織 kinocode-jp の GitHub Actions（npm の Trusted Publishing）に切り替え。npm の公開者は「GitHub Actions」になり、来歴（provenance）が付く。機能の変更なし
+
 ## 0.1.10 (2026-10-18)
 
 - セッションタイトルを常に日本語で付ける。本体のタイトル自動生成（`session-title-llm`）を無効にし、
