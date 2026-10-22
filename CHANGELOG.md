@@ -1,5 +1,10 @@
 # 変更履歴
 
+## 0.1.12 (2026-10-23)
+
+- モデル画面の「customized」の訳を「詳細設定」に変更
+- プラグイン一覧の表示名を「日本語化パック (dsh-japanese)」に（英語・中国語の表示名も追加）
+
 ## 0.1.11 (2026-10-19)
 
 - 公開を GitHub の組織 kinocode-jp の GitHub Actions（npm の Trusted Publishing）に切り替え。npm の公開者は「GitHub Actions」になり、来歴（provenance）が付く。機能の変更なし
