@@ -5063,7 +5063,7 @@ settings.models,customRouteHint,"Lowercase identifier, starting with a letter, t
 settings.models,customRouteInvalid,"Start with a lowercase letter; then lowercase letters, digits, and dashes.",英小文字で始めてください。以降は英小文字・数字・ハイフンを使用できます。,
 settings.models,customRouteTaken,A provider already uses this ID.,このIDはすでに別のプロバイダーが使用しています。,
 settings.models,customTag,Custom,カスタム,
-settings.models,customized,Customized settings,カスタマイズ済みの設定,
+settings.models,customized,Customized settings,詳細設定,
 settings.models,deepSeekAccount,DeepSeek Account,DeepSeekアカウント,
 settings.models,deepSeekBaseUrl,https://api.deepseek.com/anthropic (Default to use DEEPSEEK_BASE_URL),https://api.deepseek.com/anthropic（デフォルトではDEEPSEEK_BASE_URLを使用）,
 settings.models,deepSeekEndpointHint,Use an API endpoint compatible with Anthropic Messages.,Anthropic Messagesと互換性のあるAPIエンドポイントを使用してください。,
