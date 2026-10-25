@@ -131,9 +131,7 @@ docs/review.csv         レビュー用 CSV（生成物）
 
 ## メンテナ向け
 
-```bash
-npm publish --access public   # @kinocode スコープ
-```
+公開は GitHub Actions の Trusted Publishing で行います。[リリース手順](docs/RELEASING.md)に従い、手元で `npm login` / `npm publish` は実行しないでください。
 
 - `private` は外してある。`files` に `lib` / `locale` / `cordis.patch.yml` / README / LICENSE / CHANGELOG が入る
 - 公開前に `npm pack --dry-run` で中身を確認する

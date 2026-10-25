@@ -138,7 +138,7 @@ window.__ModuleLoader__.load({
       for (const { id, label } of LANGS) {
         ctx.effect(() => {
           try {
-            ctx.locale.addLanguage({ id, label, fallback: "en" });
+            return ctx.locale.addLanguage({ id, label, fallback: "en" });
           } catch (error) {
             if (!/already registered/.test(String(error && error.message))) throw error;
           }
